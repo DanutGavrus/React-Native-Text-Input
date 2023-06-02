@@ -13,10 +13,6 @@ class TextInputComponent extends React.Component {
     }
 
     submitForm(e) {
-        if (e) {
-            e.preventDefault();
-        }
-
         this.setState({value: ''})
     }
 
@@ -27,17 +23,11 @@ class TextInputComponent extends React.Component {
                     onChangeText={(comment) => this.setState({value: comment})}
                     value={this.state.value} />
                 <View
-                    // Keep focus on the composer when Send message is clicked.
+                    // Keep focus on the button when Send is clicked.
                     onMouseDown={(e) => e.preventDefault()} >
                     <Button
                         title='Send'
-                        onPress={this.submitForm}
-                        hitSlop={{
-                            top: 3,
-                            right: 3,
-                            bottom: 3,
-                            left: 3,
-                        }} />
+                        onPress={this.submitForm} />
                 </View>
             </>
         );
